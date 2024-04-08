@@ -81,8 +81,7 @@ if (WIN32)
 endif()
 ExternalProject_Add(curl
   PREFIX curl
-  # GIT_REPOSITORY "http://bitbucket.iluvatar.ai:7990/scm/~dun.zhang/curl.git"
-  GIT_REPOSITORY  http://bitbucket.iluvatar.ai:7990/scm/~dun.zhang/curl.git
+  GIT_REPOSITORY  "https://github.com/curl/curl.git"
   GIT_TAG "curl-7_86_0"
   SOURCE_DIR "${CMAKE_CURRENT_BINARY_DIR}/curl/src/curl"
   EXCLUDE_FROM_ALL ON
@@ -106,11 +105,10 @@ ExternalProject_Add(curl
 # use v1.25.0 because later GRPC has significant performance
 # regressions (e.g. resnet50 bs128).
 #
+
 ExternalProject_Add(grpc-repo
   PREFIX grpc-repo
-  # GIT_REPOSITORY "https://github.com/grpc/grpc.git"
-  GIT_REPOSITORY "http://bitbucket.iluvatar.ai:7990/scm/psr/tis-grpc.git"
-  GIT_TAG "v1.48.0-ix"
+  URL "http://sw.iluvatar.ai/download/corex/3rd/grpc/grpc-1.48.tar.gz" # 替换为你的FTP/HTTP地址
   SOURCE_DIR "${CMAKE_CURRENT_BINARY_DIR}/grpc-repo/src/grpc"
   EXCLUDE_FROM_ALL ON
   CONFIGURE_COMMAND ""
@@ -125,8 +123,7 @@ ExternalProject_Add(grpc-repo
 #
 ExternalProject_Add(nlohmann-json
   PREFIX nlohmann-json
-  # GIT_REPOSITORY "https://github.com/nlohmann/json.git"
-  GIT_REPOSITORY http://bitbucket.iluvatar.ai:7990/scm/~dun.zhang/json.git
+  GIT_REPOSITORY "https://github.com/nlohmann/json.git"
   GIT_TAG "v3.9.0"
   SOURCE_DIR "${CMAKE_CURRENT_BINARY_DIR}/json"
   EXCLUDE_FROM_ALL ON
@@ -276,7 +273,7 @@ ExternalProject_Add(grpc
 ExternalProject_Add(libevent
   PREFIX libevent
   # GIT_REPOSITORY "https://github.com/libevent/libevent.git"
-  GIT_REPOSITORY "http://bitbucket.iluvatar.ai:7990/scm/~dun.zhang/libevent.git"
+  GIT_REPOSITORY "http://bitbucket.iluvatar.ai:7990/scm/c_ext/libevent.git"
   GIT_TAG "release-2.1.8-stable"
   SOURCE_DIR "${CMAKE_CURRENT_BINARY_DIR}/libevent/src/libevent"
   EXCLUDE_FROM_ALL ON
@@ -370,8 +367,7 @@ ExternalProject_Add(prometheus-cpp
 #
 ExternalProject_Add(crc32c
   PREFIX crc32c
-  # GIT_REPOSITORY "https://github.com/google/crc32c.git"
-  GIT_REPOSITORY "http://bitbucket.iluvatar.ai:7990/scm/~dun.zhang/crc32c.git"
+  GIT_REPOSITORY "https://github.com/google/crc32c.git"
   GIT_TAG "b9d6e825a1e6783195a6051639179152dac70b3b"
   SOURCE_DIR "${CMAKE_CURRENT_BINARY_DIR}/crc32c/src/crc32c"
   EXCLUDE_FROM_ALL ON
@@ -407,8 +403,7 @@ set(GCS_CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH}
 #
 ExternalProject_Add(google-cloud-cpp
   PREFIX google-cloud-cpp
-  # GIT_REPOSITORY "https://github.com/googleapis/google-cloud-cpp.git"
-  GIT_REPOSITORY "http://bitbucket.iluvatar.ai:7990/scm/~dun.zhang/google-cloud-cpp.git"
+  GIT_REPOSITORY "https://github.com/googleapis/google-cloud-cpp.git"
   GIT_TAG "v1.42.0"
   SOURCE_DIR "${CMAKE_CURRENT_BINARY_DIR}/google-cloud-cpp/src/google-cloud-cpp"
   EXCLUDE_FROM_ALL ON
@@ -470,8 +465,7 @@ ExternalProject_Add(cnmem
 #
 ExternalProject_Add(aws-sdk-cpp
   PREFIX aws-sdk-cpp
-  # GIT_REPOSITORY "https://github.com/aws/aws-sdk-cpp.git"
-  GIT_REPOSITORY "http://bitbucket.iluvatar.ai:7990/scm/~dun.zhang/aws-sdk-cpp.git"
+  GIT_REPOSITORY "https://github.com/aws/aws-sdk-cpp.git"
   GIT_TAG "1.8.186"
   SOURCE_DIR "${CMAKE_CURRENT_BINARY_DIR}/aws-sdk-cpp/src/aws-sdk-cpp"
   EXCLUDE_FROM_ALL ON
